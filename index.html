@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Local, redesign-ready reference of treg's Getting started and Catalog views." />
+    <title>treg · redesign reference</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Geist+Pixel&family=Google+Sans+Flex:opsz,wght@6..144,400..700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <video class="ascii-background" autoplay loop muted playsinline preload="auto" poster="./assets/figma/ascii-background.jpg" tabindex="-1" aria-hidden="true">
+      <source src="./assets/figma/ascii-background.mp4" type="video/mp4" />
+    </video>
+
+    <header class="topbar" role="banner">
+      <div class="topbar-left">
+        <a class="brand" href="#start" aria-label="treg home">
+          <img src="./assets/figma/treg-mark.png" alt="" />
+          <span>treg</span>
+        </a>
+        <button class="team-picker" type="button" aria-expanded="false" data-demo-label="Switch workspace">
+          <span class="role owner">owner</span>
+          <strong>Design Team</strong>
+          <span class="caret" aria-hidden="true">⌄</span>
+        </button>
+      </div>
+
+      <nav class="top-nav" aria-label="Primary navigation">
+        <button class="nav-item active" type="button" data-route="start">
+          <img src="./assets/figma/nav-getting-started.svg" alt="" />
+          Getting started
+        </button>
+        <button class="nav-item" type="button" data-route="catalog">
+          <img src="./assets/figma/nav-catalog.svg" alt="" />
+          Catalog
+        </button>
+        <button class="nav-item muted-route" type="button" data-demo-label="Activity">
+          <img src="./assets/figma/nav-activity.svg" alt="" />
+          Activity
+        </button>
+        <button class="nav-item muted-route" type="button" data-demo-label="Team">
+          <img src="./assets/figma/nav-team.svg" alt="" />
+          Team
+        </button>
+      </nav>
+
+      <div class="topbar-right">
+        <div class="social-links" aria-label="treg links">
+          <a href="https://github.com/superdesigndev/treg" target="_blank" rel="noopener" aria-label="GitHub"><img src="./assets/figma/social-github.svg" alt="" /></a>
+          <a href="https://discord.gg/6mQYYfFMAn" target="_blank" rel="noopener" aria-label="Discord"><img src="./assets/figma/social-discord.svg" alt="" /></a>
+          <a href="https://x.com/treg_ai" target="_blank" rel="noopener" aria-label="X"><img src="./assets/figma/social-x.svg" alt="" /></a>
+        </div>
+        <button class="balance-pill" type="button" data-demo-label="Billing">
+          <span>Balance</span><strong>$1,000.00</strong>
+        </button>
+        <div class="account-menu-wrap">
+          <button class="avatar-button" type="button" data-account-trigger aria-haspopup="menu" aria-expanded="false" aria-label="Open account menu">
+            <img src="./assets/figma/avatar-ld.svg" alt="" />
+            <span class="account-caret" aria-hidden="true"></span>
+          </button>
+          <div class="account-menu" role="menu" data-account-menu hidden>
+            <div class="appearance-setting">
+              <span class="account-menu-label">Appearance</span>
+              <div class="theme-choice" role="group" aria-label="Color theme">
+                <button type="button" data-set-theme="light" aria-pressed="true">Light</button>
+                <button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
+              </div>
+            </div>
+            <button class="account-menu-item" type="button" role="menuitem" data-account-action="vault">
+              <img src="./assets/figma/nav-vault.svg" alt="" />
+              <span>Your vault</span>
+              <span class="menu-arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="account-menu-item referral-item" type="button" role="menuitem" data-account-action="referral">
+              <span class="referral-spark" aria-hidden="true">✦</span>
+              <span><strong>Refer a friend</strong><small>Invite friends, unlock more</small></span>
+              <span class="menu-arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="account-menu-divider"></div>
+            <button class="account-menu-item logout-item" type="button" role="menuitem" data-account-action="logout">
+              <span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <main id="main-content" tabindex="-1">
+        <section class="view start-view active" data-view="start" aria-labelledby="start-title">
+          <div class="start-column">
+            <div class="welcome-row">
+              <div class="welcome-title">
+                <span class="welcome-mark" aria-hidden="true"><img src="./assets/figma/welcome-mark.svg" alt="" /></span>
+                <h1 id="start-title">Welcome！Getting started</h1>
+              </div>
+              <button class="start-search" type="button" data-start-search aria-label="Search tools in catalog">
+                <img src="./assets/figma/search.svg" alt="" />
+                <span>search tools...</span>
+              </button>
+            </div>
+
+            <article class="start-card first-card">
+              <section class="setup-side" aria-label="Agent selection">
+                <header class="start-card-header">
+                  <span class="step-number">1</span>
+                  <strong>Set up your</strong>
+                  <div class="agent-picker">
+                    <button class="agent-select" type="button" aria-haspopup="listbox" aria-expanded="false" data-agent-select>
+                      <span class="agent-symbol" data-agent-symbol><img src="./assets/figma/openclaw.svg" alt="" data-agent-icon /></span>
+                      <span data-agent-name>OpenClaw</span>
+                      <span class="agent-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="agent-menu" role="listbox" hidden data-agent-menu></div>
+                  </div>
+                </header>
+                <video class="agent-preview" autoplay loop muted playsinline preload="metadata" poster="./assets/figma/openclaw-preview.png" disablepictureinpicture aria-hidden="true">
+                  <source src="./assets/figma/openclaw-preview.mp4" type="video/mp4" />
+                </video>
+              </section>
+
+              <div class="start-card-body setup-body">
+                <p class="sub agent-context">Setting up treg for <strong data-agent-context-name>OpenClaw</strong></p>
+                <div data-plugin-slot></div>
+
+                <section class="setup-panel">
+                  <p class="instruction" data-agent-instruction>In your agent's chat, send:</p>
+                  <div class="code-block">
+                    <pre><code>set up treg — https://treg.to/llms.txt</code></pre>
+                    <button class="copy-button" type="button" data-copy="set up treg — https://treg.to/llms.txt">copy</button>
+                  </div>
+                </section>
+
+                <section class="setup-panel token-section">
+                  <div class="eyebrow-label">Your API key</div>
+                  <p class="sub token-copy">Already created. Setup signs your agent in automatically — but if it ever asks for a key, give it this one (header <code>X-Treg-Token</code>).</p>
+                  <div class="code-block token-code">
+                    <pre><code data-token>treg_demo_7f91••••••••••••••••</code></pre>
+                    <div class="token-actions">
+                      <button class="token-toggle" type="button" data-token-toggle aria-label="Show key"><img src="./assets/figma/eye-closed.svg" alt="" data-token-eye /></button>
+                      <button class="copy-button" type="button" data-copy-token>copy</button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <article class="start-card second-card">
+              <header class="start-card-header">
+                <span class="step-number">2</span>
+                <strong>Try it out</strong>
+              </header>
+              <div class="start-card-body">
+                <p class="sub intro-copy">treg is ready with your agent. Copy any example below and send it to your agent.</p>
+                <div class="try-grid">
+                  <button class="try-card" type="button" data-copy="Use treg to pull today's trending TikTok videos (video links included)">
+                    <img class="try-card-bg" src="./assets/figma/try-trending-bg.png" alt="" />
+                    <span class="try-card-overlay">
+                      <span class="try-card-top"><span><img src="./assets/figma/try-tiktok.svg" alt="" /> Trending videos pattern</span><span class="copy-state"><img src="./assets/figma/copy.svg" alt="" />copy</span></span>
+                      <span class="try-text">Use treg to pull today's trending TikTok videos (video links included)</span>
+                    </span>
+                  </button>
+                  <button class="try-card" type="button" data-copy="Use treg to find the work email of Peter Steinberger">
+                    <img class="try-card-bg" src="./assets/figma/try-contact-bg.png" alt="" />
+                    <span class="try-card-overlay">
+                      <span class="try-card-top"><span><img src="./assets/figma/try-people.svg" alt="" /> Get contact emails</span><span class="copy-state"><img src="./assets/figma/copy.svg" alt="" />copy</span></span>
+                      <span class="try-text">Use treg to find the work email of Peter Steinberger</span>
+                    </span>
+                  </button>
+                  <button class="try-card" type="button" data-copy="Use treg to pull real monthly search volume and top related keywords worth targeting for my business">
+                    <img class="try-card-bg" src="./assets/figma/try-keyword-bg.png" alt="" />
+                    <span class="try-card-overlay">
+                      <span class="try-card-top"><span><img src="./assets/figma/try-google.svg" alt="" /> Keyword volume</span><span class="copy-state"><img src="./assets/figma/copy.svg" alt="" />copy</span></span>
+                      <span class="try-text">Use treg to pull real monthly search volume and top related keywords worth targeting for my business</span>
+                    </span>
+                  </button>
+                  <button class="try-card" type="button" data-copy="Use treg to look up linkedin.com/in/jasonzhoudesign">
+                    <img class="try-card-bg" src="./assets/figma/try-linkedin-bg.png" alt="" />
+                    <span class="try-card-overlay">
+                      <span class="try-card-top"><span><img src="./assets/figma/try-linkedin.svg" alt="" /> Scrape linkedin</span><span class="copy-state"><img src="./assets/figma/copy.svg" alt="" />copy</span></span>
+                      <span class="try-text">Use treg to look up linkedin.com/in/jasonzhoudesign</span>
+                    </span>
+                  </button>
+                </div>
+
+                <div class="oauth-divider"><span>also connect OAuth to unlock new agent capabilities</span></div>
+                <div class="oauth-groups" data-oauth-groups></div>
+              </div>
+            </article>
+
+            <section class="build-section" aria-labelledby="build-title">
+              <h2 id="build-title">Build on treg</h2>
+              <p class="build-intro">Optional, for two other kinds of user. Each is a skill file — paste the line into your coding agent, in your own repo, and it implements the rest.</p>
+
+              <div class="build-tabs" role="tablist" aria-label="Build on treg options">
+                <button class="build-tab active" type="button" role="tab" aria-selected="true" data-build-tab="vendor">List as vendor</button>
+                <button class="build-tab" type="button" role="tab" aria-selected="false" data-build-tab="platform">Integrate into your platform</button>
+              </div>
+
+              <div class="build-panel-shell">
+                <div class="build-panel" role="tabpanel" data-build-panel="vendor">
+                  <p>Put your API in front of every treg agent. Your agent reads the guide, writes the catalog entry for your endpoints and prices, and opens the PR.</p>
+                  <div class="build-code-wrap">
+                    <div class="build-code-row">
+                      <code>Read <a href="https://treg.to/vendor-listing.md" target="_blank" rel="noopener">https://treg.to/vendor-listing.md</a> and add our API to the treg catalog, then open a PR.</code>
+                      <button class="copy-button" type="button" data-copy="Read https://treg.to/vendor-listing.md and add our API to the treg catalog, then open a PR.">copy</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="build-panel" role="tabpanel" data-build-panel="platform" hidden>
+                  <p>Give every user access to treg from your own product. Your agent reads the integration guide and wires the client into your platform.</p>
+                  <div class="build-code-wrap">
+                    <div class="build-code-row">
+                      <code>Read <a href="https://treg.to/llms.txt" target="_blank" rel="noopener">https://treg.to/llms.txt</a> and integrate treg into this platform.</code>
+                      <button class="copy-button" type="button" data-copy="Read https://treg.to/llms.txt and integrate treg into this platform.">copy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="build-manual">
+                <summary>Prefer the terminal? Manual CLI setup &amp; sharing your team's keys →</summary>
+                <p>Open the setup guide at <a href="https://treg.to/llms.txt" target="_blank" rel="noopener">treg.to/llms.txt</a>.</p>
+              </details>
+            </section>
+          </div>
+        </section>
+
+        <section class="view catalog-view" data-view="catalog" aria-labelledby="catalog-title" hidden>
+          <header class="catalog-header">
+            <div class="catalog-heading">
+              <h1 id="catalog-title">2,800+ tools for agents</h1>
+              <p class="sub">Connect an account once. treg holds the credential server-side and injects it on every call — nothing lands on your machine.</p>
+            </div>
+            <div class="catalog-actions">
+              <button class="small-button" type="button" data-demo-label="Request a tool">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v6M9 10h6"/></svg>
+                Request a tool
+              </button>
+              <button class="small-button" type="button" data-demo-label="List as vendor">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20.6 13.4-7.2 7.2a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><path d="M7 7h.01"/></svg>
+                List as vendor
+              </button>
+              <button class="small-button primary" type="button" data-byok>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 2-2 2"/><circle cx="7.5" cy="16.5" r="5.5"/><path d="m11.4 12.6 4.1-4.1M15.5 8.5l3 3L22 8l-3-3"/></svg>
+                Bring your own key
+              </button>
+            </div>
+          </header>
+
+          <div class="catalog-tabs-wrap">
+            <div class="catalog-tabs" role="tablist" aria-label="Catalog categories" data-catalog-tabs></div>
+          </div>
+
+          <div class="catalog-status sub sr-only" role="status" data-catalog-status>Loading the local catalog…</div>
+          <div class="catalog-groups" data-catalog-groups></div>
+          <div class="provider-catalog" data-provider-catalog hidden></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="platform-dialog" data-platform-dialog>
+      <div class="dialog-header">
+        <div class="dialog-title" data-dialog-title></div>
+        <button class="icon-button" type="button" aria-label="Close platform details" data-dialog-close>×</button>
+      </div>
+      <div class="dialog-body" data-dialog-body></div>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
