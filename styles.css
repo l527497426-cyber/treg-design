@@ -3116,7 +3116,7 @@ main {
 
 /* Account-level dark mode */
 :root[data-theme="dark"] {
-  --bg: #111210;
+  --bg: #000;
   --surface: #181917;
   --panel: #181917;
   --panel-2: #222320;
@@ -3132,7 +3132,7 @@ main {
 
 :root[data-theme="dark"] body,
 :root[data-theme="dark"] .topbar {
-  background: #111210;
+  background: #000;
 }
 
 :root[data-theme="dark"] .ascii-background {
@@ -3141,7 +3141,7 @@ main {
 }
 
 :root[data-theme="dark"] .topbar {
-  background: rgba(17, 18, 16, 0.88);
+  background: rgba(0, 0, 0, 0.88);
 }
 
 :root[data-theme="dark"] .brand,
