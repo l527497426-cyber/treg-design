@@ -2736,15 +2736,20 @@ main {
 .try-card:hover {
   border-color: transparent;
   background: #f8f8f8;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   transform: translateY(-2px);
+}
+
+.try-card:focus-visible {
+  outline: 0;
+  box-shadow: none;
 }
 
 .try-card::after {
   position: absolute;
-  inset: 0.5px;
+  inset: 0;
   z-index: 1;
-  border-radius: 19.5px;
+  border-radius: inherit;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 23.155%, rgba(255, 255, 255, 0.9) 100%);
   content: "";
   pointer-events: none;
