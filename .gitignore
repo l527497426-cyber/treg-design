@@ -3,3 +3,4 @@
 node_modules/
 *.log
 assets/figma/reference-*.png
+.env*
