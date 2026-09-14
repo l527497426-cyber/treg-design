@@ -585,10 +585,14 @@ function setupEvents() {
 
     const accountAction = event.target.closest("[data-account-action]");
     if (accountAction) {
+      if (accountAction.dataset.accountAction === "logout") {
+        closeAccountMenu();
+        location.assign("/");
+        return;
+      }
       const messages = {
         vault: "Your vault is outside this two-page prototype",
         referral: "Referral flow is ready for the next redesign pass",
-        logout: "Log out is disabled in this local prototype",
       };
       showToast(messages[accountAction.dataset.accountAction]);
       closeAccountMenu();

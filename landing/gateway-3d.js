@@ -86,7 +86,7 @@ export async function mountGateway(host,{studio=false}={}){
   intro?.apply();renderer.render(scene,camera);dirty=false;
  }
  const canvas=renderer.domElement;
- canvas.addEventListener('pointerdown',e=>{if(e.button!==0)return;intro?.stop();dirty=true;drag=true;startX=e.clientX;startY=e.clientY;canvas.setPointerCapture(e.pointerId);},{signal});
+ canvas.addEventListener('pointerdown',e=>{if(e.button!==0||host.dataset.intro==='running')return;dirty=true;drag=true;startX=e.clientX;startY=e.clientY;canvas.setPointerCapture(e.pointerId);},{signal});
  canvas.addEventListener('pointermove',e=>{if(drag){const dx=e.clientX-startX,dy=e.clientY-startY;targetYaw+=dx*.007;targetPitch=T.MathUtils.clamp(targetPitch+dy*.005,-.85,.85);startX=e.clientX;startY=e.clientY;dirty=true;}},{signal});
  const interactionArea=host.closest('.hero')||host;
  interactionArea.addEventListener('pointermove',e=>{
@@ -101,7 +101,7 @@ export async function mountGateway(host,{studio=false}={}){
  window.addEventListener('blur',clearHover,{signal});
  function release(e){drag=false;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);}
  canvas.addEventListener('pointerup',release,{signal});canvas.addEventListener('pointercancel',e=>{release(e);clearHover();},{signal});
- function reset(){intro?.stop();targetYaw=initialView.yaw;targetPitch=initialView.pitch;clearHover();cycleTime=0;targetSpread=0;auto=false;dirty=true;}
+ function reset(){if(host.dataset.intro==='running')return;targetYaw=initialView.yaw;targetPitch=initialView.pitch;clearHover();cycleTime=0;targetSpread=0;auto=false;dirty=true;}
  canvas.addEventListener('dblclick',reset,{signal});
  canvas.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'].includes(e.key))return;e.preventDefault();if(e.key==='Home')reset();else{targetYaw+=(e.key==='ArrowRight'?.12:e.key==='ArrowLeft'?-.12:0);targetPitch=T.MathUtils.clamp(targetPitch+(e.key==='ArrowDown'?.1:e.key==='ArrowUp'?-.1:0),-.85,.85);dirty=true;}},{signal});
  canvas.setAttribute('aria-label','Interactive 3D gateway. Six glass layers automatically rise and illuminate in sequence. Drag or use arrow keys to rotate; Home resets. Use Pause motion to stop animation.');
