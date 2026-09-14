@@ -7,9 +7,10 @@
  let active=false,items=[],travel=0,last=-1,height=0;
  function measure(){
   active=media.matches&&!document.documentElement.classList.contains('motion-off');
-  section.classList.toggle('catalog-drum',active);section.style.height='';track.style.transform='';
+  // Preserve the scroll range while measuring: clearing it clamps scrollY near the footer.
+  section.classList.toggle('catalog-drum',active);track.style.transform='';
   nodes.forEach(n=>{n.style.transform='';n.style.opacity='';n.style.pointerEvents='';});
-  if(!active)return;
+  if(!active){section.style.height='';return;}
   height=viewport.clientHeight;
   const origin=track.getBoundingClientRect().top;
   items=nodes.map(node=>{const r=node.getBoundingClientRect();return {node,center:r.top-origin+r.height/2};});
@@ -38,7 +39,13 @@
   window.scrollTo({top:Math.max(0,target),behavior:'instant'});
  });
  window.addEventListener('resize',measure);media.addEventListener('change',measure);
- new MutationObserver(measure).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+ // Lenis updates root classes on every scroll start/stop; those are not layout changes.
+ let motionOff=document.documentElement.classList.contains('motion-off');
+ new MutationObserver(()=>{
+  const next=document.documentElement.classList.contains('motion-off');
+  if(next===motionOff)return;
+  motionOff=next;measure();
+ }).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
  document.fonts.ready.then(measure);window.addEventListener('load',measure,{once:true});
  window.tregCatalog={tick};measure();
 })();

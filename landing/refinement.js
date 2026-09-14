@@ -18,6 +18,9 @@
   lastEndScroll=scrollY;lastEndHeight=innerHeight;
   const active=enabled()&&!touch.matches&&innerWidth>640;
   const boundary=reveal.getBoundingClientRect();
+  const revealProgress=Math.max(0,Math.min(1,(innerHeight-boundary.top)/(innerHeight*.45)));
+  root.style.setProperty('--top-veil-opacity',(1-revealProgress).toFixed(4));
+  document.body.toggleAttribute('data-dark-nav',boundary.top<80);
   const a=ending.getBoundingClientRect(),b=footer.getBoundingClientRect();
   const opening=r=>{
    const settleTop=Math.max(innerHeight*.3,innerHeight-r.height);
