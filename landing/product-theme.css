@@ -298,7 +298,7 @@ html.motion-off #copybtn .copy-idle,html.motion-off #copybtn .copy-result,html.m
  .hero .hero-h1{margin-top:18px}
  .hero .hero-h1 .l2{margin-top:12px}
  .hero .scene{margin-top:22px}
- .hero .givebox{width:640px;margin-top:24px}
+ .hero .givebox{width:640px;margin-top:48px}
  .hero .givebox .gb-h{font-size:12px;gap:8px;padding:9px 6px 12px}
  .hero .givebox .gb-h img{width:16px;height:16px}
  .hero .givebox .gb-cmd{padding:10px 14px}
@@ -312,6 +312,9 @@ html.motion-off #copybtn .copy-idle,html.motion-off #copybtn .copy-result,html.m
  .hero .givebox .gb-cmd{padding:10px;min-width:0}
  .hero .givebox .gb-cmd code{font-size:11px;min-width:0}
  .hero .givebox .gb-cmd #copybtn{min-width:76px}
+}
+@media(min-width:641px) and (max-width:900px){
+ .hero .givebox{margin-top:48px}
 }
 /* Local frosted surfaces: keep the animated backdrop visible without a full-screen blur. */
 .hero .scene .aghead,.hero .scene .htool:not(.more){
