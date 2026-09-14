@@ -291,6 +291,28 @@ html.motion-off .command-beam path{animation:none}
 @media(prefers-reduced-motion:reduce){#copybtn .copy-idle,#copybtn .copy-result,#copybtn .copy-check{transition:none;transform:none}}
 html.motion-off #copybtn .copy-idle,html.motion-off #copybtn .copy-result,html.motion-off #copybtn .copy-check{transition:none}
 .hero .givebox img[src$="hermesagent.svg"],.hero .givebox img[src$="opencode.svg"],.hero .givebox img[src$="pi.svg"]{filter:brightness(0) invert(1)}
+/* Compact copy panel on short laptops, with breathing room below the hero. */
+@media(min-width:901px) and (max-height:980px){
+ .hero{padding-top:80px;padding-bottom:56px}
+ .hero>.wrap{min-height:calc(100svh - 136px)}
+ .hero .hero-h1{margin-top:18px}
+ .hero .hero-h1 .l2{margin-top:12px}
+ .hero .scene{margin-top:22px}
+ .hero .givebox{width:640px;margin-top:24px}
+ .hero .givebox .gb-h{font-size:12px;gap:8px;padding:9px 6px 12px}
+ .hero .givebox .gb-h img{width:16px;height:16px}
+ .hero .givebox .gb-cmd{padding:10px 14px}
+ .hero .givebox .gb-cmd code{font-size:12px}
+ .hero .givebox .gb-cmd #copybtn{min-width:88px}
+}
+@media(max-width:900px){
+ .hero .givebox{width:600px;max-width:100%;margin-top:24px;padding:8px}
+ .hero .givebox .gb-h{font-size:12px;gap:7px;padding:9px 4px 12px}
+ .hero .givebox .gb-h img{width:16px;height:16px}
+ .hero .givebox .gb-cmd{padding:10px;min-width:0}
+ .hero .givebox .gb-cmd code{font-size:11px;min-width:0}
+ .hero .givebox .gb-cmd #copybtn{min-width:76px}
+}
 /* Local frosted surfaces: keep the animated backdrop visible without a full-screen blur. */
 .hero .scene .aghead,.hero .scene .htool:not(.more){
  background:rgba(255,255,255,.58);
