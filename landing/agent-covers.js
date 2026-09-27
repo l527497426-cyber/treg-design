@@ -11,7 +11,15 @@ export function createAgentCover(host,id='openclaw'){
  host.classList.add('agent-cover');host.setAttribute('role','img');
  const canvas=document.createElement('canvas');canvas.ariaHidden='true';host.append(canvas);
  const ctx=canvas.getContext('2d'),reduced=matchMedia('(prefers-reduced-motion: reduce)');
- let current='',frame=0,visible=false,last=0,w=311,h=281,mx=-500,my=-500;
+ let current='',requested='',revision=0,frame=0,visible=false,last=0,w=311,h=281,mx=-500,my=-500;
+ // Prepare the actual image nodes up front, then reuse them on every switch.
+ const logos=new Map(Object.entries(profiles).map(([key,p])=>{
+  const image=new Image();image.className='agent-cover__logo';image.alt='';
+  image.src=new URL('assets/'+p.logo,rootURL);
+  const entry={image,ready:false};
+  entry.promise=image.decode().then(()=>{entry.ready=true;return true;},()=>false);
+  return [key,entry];
+ }));
  function draw(time=0){
   if(time-last<33&&!reduced.matches){frame=requestAnimationFrame(draw);return;}last=time;
   ctx.clearRect(0,0,w,h);ctx.textAlign='center';
@@ -45,15 +53,24 @@ export function createAgentCover(host,id='openclaw'){
  const ro=new ResizeObserver(()=>{w=host.clientWidth;h=host.clientHeight;const d=Math.min(devicePixelRatio,2);canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);resume();});ro.observe(host);
  host.addEventListener('pointermove',e=>{const r=host.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});host.addEventListener('pointerleave',()=>{mx=my=-500;});
  document.addEventListener('visibilitychange',resume);reduced.addEventListener('change',resume);
- function setAgent(next){if(!profiles[next]||next===current)return;current=next;const p=profiles[next];host.dataset.agent=next;host.setAttribute('aria-label',p.name+' animated cover');
+ function setAgent(next){
+  if(!profiles[next])return;
+  requested=next;const ticket=++revision;
+  if(next===current)return;
+  const entry=logos.get(next);
+  const show=()=>{
+  if(ticket!==revision||requested!==next)return;
+  current=next;const p=profiles[next];host.dataset.agent=next;host.setAttribute('aria-label',p.name+' animated cover');
   host.querySelectorAll('.agent-cover__layer').forEach(n=>n.remove());
   const layer=document.createElement('div');layer.className='agent-cover__layer';
-  const logo=document.createElement('img');logo.className='agent-cover__logo';logo.src=new URL('assets/'+p.logo,rootURL);logo.alt='';
+  const logo=entry.image;
   const title=document.createElement('span');title.className='agent-cover__title';title.textContent=p.name;
   const dots=document.createElement('div');dots.className='agent-cover__static-dots';dots.ariaHidden='true';
   const blur=document.createElement('div');blur.className='agent-cover__blur';blur.ariaHidden='true';
   for(let i=0;i<3;i++)blur.append(document.createElement('i'));
   layer.append(canvas,logo,dots,blur,title);host.prepend(layer);
+  };
+  if(entry.ready)show();else entry.promise.then(ok=>{if(ok)show();});
  }
  setAgent(id);return {setAgent};
 }
