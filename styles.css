@@ -2842,7 +2842,7 @@ main {
   border: 0;
   border-radius: 16px 16px 0 0;
   background-color: #f3f3f3;
-  background-image: linear-gradient(180deg, rgba(243,243,243,.68) 0%, rgba(243,243,243,.88) 48%, #f3f3f3 100%);
+  background-image: linear-gradient(180deg, rgba(243,243,243,.88) 0%, rgba(243,243,243,.97) 48%, #f3f3f3 100%);
   padding: 16px;
   text-align: left;
   backdrop-filter: blur(16px);
