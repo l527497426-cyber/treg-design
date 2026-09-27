@@ -1,18 +1,19 @@
 const $ = (selector, root = document) => root.querySelector(selector);
+import('./landing/agent-covers.js');
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
 const agents = [
-  { id: "openclaw", name: "OpenClaw", mark: "O", icon: "./assets/figma/openclaw.svg" },
-  { id: "grokbot", name: "Grok Bot", mark: "G", plugin: true },
-  { id: "hermes", name: "Hermes Agent", mark: "H" },
-  { id: "claude-ai", name: "Claude.ai", mark: "A" },
-  { id: "claude-code", name: "Claude Code", mark: "C" },
-  { id: "codex", name: "Codex", mark: "▣" },
-  { id: "opencode", name: "opencode", mark: "O" },
-  { id: "pi", name: "pi", mark: "π" },
-  { id: "cursor", name: "Cursor", mark: "↗" },
-  { id: "gemini", name: "Gemini CLI", mark: "✦" },
-  { id: "other", name: "Other", mark: "✳" },
+  { id: "openclaw", name: "OpenClaw", icon: "./landing/assets/openclaw-color.svg" },
+  { id: "grokbot", name: "Grok Bot", icon: "./landing/assets/grok.svg", plugin: true },
+  { id: "hermes", name: "Hermes Agent", icon: "./landing/assets/hermesagent.svg" },
+  { id: "claude-ai", name: "Claude.ai", icon: "./landing/assets/claude-color.svg" },
+  { id: "claude-code", name: "Claude Code", icon: "./landing/assets/claudecode-color.svg" },
+  { id: "codex", name: "Codex", icon: "./landing/assets/codex-color.svg" },
+  { id: "opencode", name: "opencode", icon: "./landing/assets/opencode.svg" },
+  { id: "pi", name: "pi", icon: "./landing/assets/pi.svg" },
+  { id: "cursor", name: "Cursor", icon: "./landing/assets/cursor.svg" },
+  { id: "gemini", name: "Gemini CLI", icon: "./landing/assets/gemini-color.svg" },
+  { id: "other", name: "Other", icon: "./landing/assets/other-icon.svg" },
 ];
 
 const oauthGroups = [
@@ -161,7 +162,7 @@ function selectAgent(id) {
     <div class="plugin-note">
       <p>First, install the treg plugin:</p>
       <button class="button" type="button" data-demo-label="Install plugin in Grok Bot">
-        <span class="agent-symbol small">G</span> Install plugin in Grok Bot ↗
+        <span class="agent-symbol small"><img src="${agent.icon}" alt="" /></span> Install plugin in Grok Bot ↗
       </button>
     </div>
   ` : "";
