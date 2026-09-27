@@ -2837,7 +2837,7 @@ main {
   display: flex;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   border: 0;
   border-radius: 16px 16px 0 0;
